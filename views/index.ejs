@@ -1,0 +1,15 @@
+<%- include partials/header.ejs %>
+
+<% repos.forEach(function(repo){ %>
+    <p><%= repo.name %></p>
+<% }) %>
+
+<% if(prevBtn){ %>
+    <a href="/fetch/<%=parseInt(pageNumber)-1%>">Previous</a>
+<%}%>
+
+<% if(nextBtn){ %>
+    <a href="/fetch/<%=parseInt(pageNumber)+1%>">Next</a>
+<%}%>
+
+<%- include partials/footer.ejs %>

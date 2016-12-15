@@ -1,0 +1,30 @@
+<%- include partials/header.ejs %>
+<header class="header">
+    <nav class="details-navbar">
+        <button class="btn btn-default" data-component="back-btn">&laquo; Back</button>
+    </nav>
+</header>
+<main class="main-content">
+    <div class="row">
+        <section class="col-sm-4">
+            <img src="<%= details.owner.avatar_url %>" alt="avatar" width="100%">
+        </section>
+        <section class="col-sm-8">
+            <h1><%=details.name%></h1>
+            <h2><a href="<%= details.owner.html_url %>"><%=details.owner.login%></a></h2>
+            <p>Type: <strong><%=details.owner.type%></strong></p>
+            <p>Site admin: <span class="label label-<%=details.owner.site_admin ? 'success' : 'danger'%>"><%=details.owner.site_admin ? 'Yes' : 'No'%></span></p>
+            <h4>Description:</h4>
+            <p><%=details.description%></p>
+            <span class="label label-<%=details.private ? 'danger' : 'success'%>"><%=details.private ? 'private' : 'public'%></span>
+            <p>Created at: <strong><%= new Date(details.created_at).toDateString()%></strong></p>
+            <p>Updated at: <strong><%= new Date(details.updated_at).toDateString()%></strong></p>
+            <p>Pushed at: <strong><%= new Date(details.pushed_at).toDateString()%></strong></p>
+            <p>Subscribers: <strong><%=details.subscribers_count%></strong></p>
+            <p>Watchers: <strong><%=details.watchers_count%></strong></p>
+            <p>Forks: <strong><%=details.forks_count%></strong></p>
+        </section>
+    </div>
+</main>
+
+<%- include partials/footer.ejs %>

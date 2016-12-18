@@ -2,7 +2,7 @@
 
 module.exports = function () {
     return function (req, res, next) {
-        let FetchClass = require('./FetchClass');
+        let FetchClass = require('../classes/FetchClass');
         let pageNumber = req.params['page'] || 1;
         let fetcher = new FetchClass('https://api.github.com/users/addyosmani/repos?page=' + (parseInt(pageNumber)));
 

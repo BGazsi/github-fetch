@@ -17,12 +17,6 @@ exports = module.exports = app => {
     app.use('/fetch',
         redirectToHomeMW()
     );
-
-    //a favicon keres beesett a /-re, ezert csinaltam ezt a hacket
-    app.use('/favicon.ico',
-    () => {
-        return false;
-    });
     app.use('/',
         redirectToHomeMW()
     )

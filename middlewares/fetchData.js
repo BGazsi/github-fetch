@@ -1,13 +1,12 @@
 // var mock = require('../public/mockRepos');
-var FetchClass = require('./FetchClass');
 
 module.exports = function () {
     return function (req, res, next) {
+        let FetchClass = require('./FetchClass');
         let pageNumber = req.params['page'] || 1;
-        let fetcher = new FetchClass(pageNumber, 'addyosmani');
+        let fetcher = new FetchClass('https://api.github.com/users/addyosmani/repos?page=' + (parseInt(pageNumber)));
 
         res.tpl.pageNumber = pageNumber;
-        res.tpl.prevBtn = pageNumber > 1;
 
         fetcher.collect(req, res, next);
     };

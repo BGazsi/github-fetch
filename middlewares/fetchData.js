@@ -1,10 +1,9 @@
-// var mock = require('../public/mockRepos');
-
 module.exports = function () {
     return function (req, res, next) {
         let FetchClass = require('../classes/FetchClass');
+        let CONSTANTS = require('../config/constants');
         let pageNumber = req.params['page'] || 1;
-        let fetcher = new FetchClass('https://api.github.com/users/addyosmani/repos?page=' + (parseInt(pageNumber)));
+        let fetcher = new FetchClass(CONSTANTS.REPOS_URL + (parseInt(pageNumber)));
 
         res.tpl.pageNumber = pageNumber;
 
